@@ -7,36 +7,42 @@ namespace NewRenderWindow
 {
     public partial class MainWindow : Window
     {
+        public ListBox MenuOptions;
 
-        public Button NodesButton, SettingsButton, QueueButton;
-        public List<Button> MenuButtons;
-
+        public Grid MenuPanel;
+        public ListBoxItem MenuName;
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public void InitilizeComponent()
+        public void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-            NodesButton = this.Find<Button>("Nodes");
-            SettingsButton = this.Find<Button>("Settings");
-            QueueButton = this.Find<Button>("Queue");
-            MenuButtons = new List<Button> { NodesButton, SettingsButton, QueueButton };
+
+            InitializeMenu();
+            this.Find<ListBox>("menuOptions").SelectionChanged += (a, b) =>
+            {
+                if (b.AddedItems.Count > 0)
+                {
+                    MenuName = b.AddedItems[0] as ListBoxItem;
+                    if(MenuName != null) {
+                        Menus.LoadMenu(MenuName.Name, this);
+                        Grid menu = this.Find<Grid>("menu" + MenuName);
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MenuPanel)));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(menu)));
+                    }
+                }
+            };
         }
 
-        public void OnClickCommand(Button b)
+        private void InitializeMenu()
         {
-            foreach(var button in MenuButtons)
-            {
-                if (b != button)
-                {
-                    b.Classes.Remove(":checked");
-                    b.Classes.Add(":unchecked");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(b)));
-                }
-            }
+            MenuOptions = this.Find<ListBox>("menuOptions");
+            MenuOptions.SelectedIndex = 0;
+            Menus.LoadMenu(((ListBoxItem)MenuOptions.SelectedItem).Name, this);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MenuOptions)));
         }
     }
 }
