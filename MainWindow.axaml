@@ -5,5 +5,24 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NewRenderWindow.MainWindow"
         Title="NewRenderWindow">
-    Welcome to Avalonia!
+	<Grid ColumnDefinitions="*,Auto" Background="SlateBlue">
+		<!-- Menu Bar -->
+		<Grid Grid.Column="0">
+			<!-- Collapsed Menu Buttons -->
+			<StackPanel Orientation="Vertical">
+				<ToggleButton x:Name="Nodes" Command="{Binding OnClickCommand}" CommandParameter="{Binding ElementName=Nodes}">
+					Nodes
+				</ToggleButton>
+				<ToggleButton x:Name="Settings" Command="{Binding OnClickCommand}" CommandParameter="{Binding ElementName=Settings}">
+					Settings
+				</ToggleButton>
+				<ToggleButton x:Name="Queue" Command="{Binding OnClickCommand}" CommandParameter="{Binding ElementName=Queue}">
+					Queue
+				</ToggleButton>
+			</StackPanel>
+			
+			<!-- Open Menu Panels-->
+			<Rectangle Width="00" Height="450" Grid.Column="1" Fill="BlanchedAlmond"></Rectangle>
+		</Grid>
+	</Grid>
 </Window>
