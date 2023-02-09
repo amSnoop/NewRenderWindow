@@ -5,29 +5,34 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NewRenderWindow.MainWindow"
         Title="NewRenderWindow">
-	<Grid ColumnDefinitions="Auto,*" Background="IndianRed">
+	<Grid ColumnDefinitions="*,Auto" Background="{DynamicResource BackgroundMenu}">
 		<!-- Menu Bar -->
-		<Grid Grid.Column="0" ColumnDefinitions="Auto,*">
+		<Grid Grid.Column="1" ColumnDefinitions="Auto,*">
 			<!-- Collapsed Menu Buttons -->
-			<ListBox Grid.Column="0" SelectionMode="Single,Toggle" x:Name="menuOptions" SelectedItem="{Binding SelectedMenu}" Background="Orange">
-				<ListBoxItem Background="Black" x:Name="Nodes">
+			<ListBox Grid.Column="1" SelectionMode="Single,Toggle" x:Name="menuOptions" Background="Orange">
+				<ListBoxItem Classes="MenuButtons" Background="Black" x:Name="Nodes">
 					<TextBlock Background="Blue">Nodes</TextBlock>
 					</ListBoxItem>
-					<ListBoxItem x:Name="Settings">
+					<ListBoxItem Classes="MenuButtons" x:Name="Settings">
 					<TextBlock Background="Blue">Settings</TextBlock>
 				</ListBoxItem>
-					<ListBoxItem x:Name="Queue">
+					<ListBoxItem Classes="MenuButtons" x:Name="Queue">
 					<TextBlock Background="Blue">Queue</TextBlock>
 				</ListBoxItem>
 			</ListBox>
-			<Grid Grid.Column="1" x:Name="menuPanel">
-				<Grid x:Name="menuNodes" Background="Beige" Width="50" Height="500" IsVisible="False">
+			<Grid Grid.Column="0" x:Name="menuPanel">
+
+				<!-- Nodes Setup menu panel -->
+				<Grid IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes" Background="Beige" Width="50" Height="500">
 					
 				</Grid>
-				<Grid x:Name="menuSettings" Background="Aqua" Width="50" Height="500" IsVisible="False">
+
+				<!-- Settings menu panel -->
+				<Grid IsVisible="{Binding #Settings.IsSelected}" x:Name="menuSettings" Background="Aqua" Width="50" Height="500">
 
 				</Grid>
-				<Grid x:Name="menuQueue" Background="Fuchsia" Width="50" Height="500" IsVisible="False">
+				<!-- Queue menu panel -->
+				<Grid IsVisible="{Binding #Queue.IsSelected}" x:Name="menuQueue" Background="Fuchsia" Width="50" Height="500">
 
 				</Grid>
 			</Grid>

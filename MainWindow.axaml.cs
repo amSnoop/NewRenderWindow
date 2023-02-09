@@ -27,10 +27,9 @@ namespace NewRenderWindow
                 if (b.AddedItems.Count > 0)
                 {
                     MenuName = b.AddedItems[0] as ListBoxItem;
-                    if(MenuName != null) {
-                        Menus.LoadMenu(MenuName.Name, this);
+                    if (MenuName != null)
+                    {
                         Grid menu = this.Find<Grid>("menu" + MenuName);
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MenuPanel)));
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(menu)));
                     }
                 }
@@ -41,7 +40,7 @@ namespace NewRenderWindow
         {
             MenuOptions = this.Find<ListBox>("menuOptions");
             MenuOptions.SelectedIndex = 0;
-            Menus.LoadMenu(((ListBoxItem)MenuOptions.SelectedItem).Name, this);
+            //Menus.LoadMenu(((ListBoxItem)MenuOptions.SelectedItem).Name, this);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MenuOptions)));
         }
     }
