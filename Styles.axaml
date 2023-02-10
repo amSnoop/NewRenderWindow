@@ -14,8 +14,8 @@
 	
 	
     <!-- Menu Buttons -->
-	<Style Selector="Grid.MenuButtons > Rectangle">
-		<Setter Property="Fill" Value="{DynamicResource MenuButtonBackground}" />
+	<Style Selector="Grid.MenuButtons">
+		<Setter Property="Background" Value="{DynamicResource MenuButtonBackground}" />
 	</Style>
 	<Style Selector="ListBoxItem.MenuButtons > TextBlock">
 		<Setter Property="FontSize" Value="20" />

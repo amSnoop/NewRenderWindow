@@ -46,11 +46,8 @@
 		<!-- Menu Bar -->
 
 
-		<Grid Grid.Column="2" Grid.Row="1" ZIndex="1" Classes="MenuButtons" ColumnDefinitions="Auto" RowDefinitions="2*,Auto,2*">
+		<Grid Grid.Column="2" Grid.Row="1" RowDefinitions="*,Auto,*" Classes="MenuButtons">
 			<!-- Menu Buttons --> 
-
-
-			<Rectangle Grid.Column="0" Grid.Row="0"/>
 			<ListBox Classes="MenuButtons" Grid.Column="0" Grid.Row="1" x:Name="menuOptions" Background="{DynamicResource BackgroundItem}">
 
 				<ListBoxItem Classes="MenuButtons" x:Name="Nodes" Padding="0" Margin="0">
@@ -63,16 +60,13 @@
 					<TextBlock>Queue</TextBlock>
 				</ListBoxItem>
 			</ListBox>
-			<Rectangle  Grid.Column="0" Grid.Row="2" />
 		</Grid>
-		<Grid Classes="MenuButtons" Grid.Column="2" RowDefinitions="*,Auto,*" Grid.Row="2">
-			<Rectangle  Grid.Row="0" />
+		<Grid Classes="MenuButtons" Grid.Column="2"  RowDefinitions="*,Auto,*" Grid.Row="2">
 			<ListBox Classes="MenuButtons" Grid.Row="1">
 				<ListBoxItem Classes="MenuButtons" x:Name="Render">
 					<TextBlock>Render</TextBlock>
 				</ListBoxItem>
 			</ListBox>
-			<Rectangle Grid.Row="2"/>
 		</Grid>
 		<!-- Menu Panels -->
 		<Grid Grid.Column="1" Grid.Row="1" x:Name="menuPanel" Width="400">
