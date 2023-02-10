@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace NewRenderWindow
         public void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-
+            this.AttachDevTools();
             InitializeMenu();
             this.Find<ListBox>("menuOptions").SelectionChanged += (a, b) =>
             {

@@ -3,12 +3,14 @@
              x:Class="NewRenderWindow.App">
 	<Application.Resources>
 		<ResourceDictionary>
-		<ResourceDictionary.MergedDictionaries>
-			<ResourceInclude Source="/Resources.axaml" />
-		</ResourceDictionary.MergedDictionaries>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="/Resources.axaml" />
+			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Application.Resources>
 	<Application.Styles>
+		<!-- v  Don't delete this line  v -->
+		<FluentTheme Mode="Dark" />
 		<StyleInclude Source="/Styles.axaml" />
 	</Application.Styles>
 </Application>

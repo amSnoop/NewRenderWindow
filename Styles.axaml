@@ -5,6 +5,62 @@
             <!-- Add Controls for Previewer Here -->
         </Border>
     </Design.PreviewWith>
+	
+	<!-- Global styles: -->
+	<Style Selector="TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+		<Setter Property="FontSize" Value="15" />
+	</Style>
+	
+	
+    <!-- Menu Buttons -->
+	<Style Selector="Grid.MenuButtons > Rectangle">
+		<Setter Property="Fill" Value="{DynamicResource MenuButtonBackground}" />
+	</Style>
+	<Style Selector="ListBoxItem.MenuButtons > TextBlock">
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+		<Setter Property="ZIndex" Value="1" />
+		<Setter Property="RenderTransform">
+			<Setter.Value>
+				<RotateTransform Angle="90" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style Selector="ListBox.MenuButtons">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" /> 
+		<Setter Property="SelectionMode" Value="Single,Toggle" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="Background" Value="{DynamicResource MenuButtonBackground}" />
+		<Setter Property="Width" Value="50" />
+	</Style>
+	<Style Selector="ListBoxItem.MenuButtons">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="125"/>
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="Background" Value="{DynamicResource MenuButtonBackground}" />
+	</Style>
+	<Style Selector="ListBoxItem.MenuButtons:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource MenuButtonHoveredBackground}" />
+	</Style>
+	<Style Selector="ListBoxItem.MenuButtons:selected /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource MenuButtonSelectedBackground}" />
+	</Style>
+	<Style Selector="ListBoxItem.MenuButtons:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource MenuButtonSelectedHoveredBackground}" />
+	</Style>
 
-    <!-- Add Styles Here -->
+
+	<!-- Menu Panels -->
+	<Style Selector="Border.Menu">
+		<Setter Property="Background" Value="{DynamicResource BackgroundMenu}" />
+		<Setter Property="BorderBrush" Value="Gray" />
+		<Setter Property="BorderThickness" Value="0,0,1,0" />
+	</Style>
 </Styles>
