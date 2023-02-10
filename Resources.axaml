@@ -1,12 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<!-- Add Resources Here -->
+	<Color x:Key="Accent">#7160E8</Color>
+	<Color x:Key="Main">#333</Color>
+	<Color x:Key="Alt">#222</Color>
+	<Color x:Key="Highlight">#555</Color>
+	<Color x:Key="MoreHighlight">#AAA</Color>
+	<Color x:Key="TextColor">White</Color>
 	<SolidColorBrush x:Key="PatreonColor">Orange</SolidColorBrush>
-	<SolidColorBrush x:Key="BackgroundMain">#333</SolidColorBrush>
-	<SolidColorBrush x:Key="BackgroundMenu">#222</SolidColorBrush>
-	<SolidColorBrush x:Key="MenuButtonBackground">#222</SolidColorBrush>
-	<SolidColorBrush x:Key="MenuButtonSelectedBackground" Color="#7160e8" Opacity=".7"/>
-	<SolidColorBrush x:Key="MenuButtonHoveredBackground" Color="#555" />
-	<SolidColorBrush x:Key="MenuButtonSelectedHoveredBackground" Color="#7160e8"/>
-	<SolidColorBrush x:Key="TextColor" Color="White" />
+	<SolidColorBrush x:Key="BackgroundMain" Color="{DynamicResource Main}"/>
+	<SolidColorBrush x:Key="BackgroundMenu" Color="{DynamicResource Alt}"/>
+	<SolidColorBrush x:Key="MenuButtonBackground" Color="{DynamicResource Alt}"/>
+	<SolidColorBrush x:Key="MenuButtonSelectedBackground" Color="{DynamicResource Accent}" Opacity=".7"/>
+	<SolidColorBrush x:Key="MenuButtonHoveredBackground" Color="{DynamicResource Highlight}" />
+	<SolidColorBrush x:Key="MenuButtonSelectedHoveredBackground" Color="{DynamicResource Accent}"/>
 </ResourceDictionary>

@@ -47,7 +47,7 @@
 
 
 		<Grid Grid.Column="2" Grid.Row="1" RowDefinitions="*,Auto,*" Classes="MenuButtons">
-			<!-- Menu Buttons --> 
+			<!-- Menu Buttons -->
 			<ListBox Classes="MenuButtons" Grid.Column="0" Grid.Row="1" x:Name="menuOptions" Background="{DynamicResource BackgroundItem}">
 
 				<ListBoxItem Classes="MenuButtons" x:Name="Nodes" Padding="0" Margin="0">
@@ -69,11 +69,90 @@
 			</ListBox>
 		</Grid>
 		<!-- Menu Panels -->
-		<Grid Grid.Column="1" Grid.Row="1" x:Name="menuPanel" Width="400">
+		<Grid Grid.Column="1" Grid.Row="1" x:Name="menuPanel" Width="400" RowDefinitions="*">
 
 			<!-- Nodes Setup menu panel -->
-			<Border Classes="Menu" IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes">
-
+			<Border Classes="Menu" Padding="25" IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes">
+				<Grid RowDefinitions="Auto,Auto,*">
+					<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *">
+						<TextBlock Grid.Row="0" Grid.ColumnSpan="2">Add New Node:</TextBlock>
+						<TextBlock Grid.Row="1">Name:</TextBlock>
+						<TextBox Grid.Row="1" Grid.Column="1" Watermark="Name of Computer/Node"></TextBox>
+						<TextBlock Grid.Row="2">Address:</TextBlock>
+						<TextBox Grid.Row="2" Grid.Column="1" Watermark="198.168.1.1"></TextBox>
+						<TextBlock Grid.Row="3">Port:</TextBlock>
+						<TextBox  Grid.Row="3" Watermark="15000" Grid.Column="1"></TextBox>
+						<Button Content="Connect!" Grid.ColumnSpan="2" Grid.Row="4" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"></Button>
+					</Grid>
+					<Grid ColumnDefinitions="*,Auto" Grid.Row="1">
+						<TextBlock>Render Nodes:</TextBlock>
+						<TextBlock Grid.Column="1"></TextBlock>
+					</Grid>
+					<Border Grid.Row="2" Classes="NodeList">
+						<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+							<StackPanel Orientation="Vertical" >
+								<Border Classes="Connected">
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<ToggleSwitch Grid.Column="2" Grid.Row="1" OffContent="" OnContent=""></ToggleSwitch>
+									</Grid>
+								</Border>
+								<Border Classes="Connected Synced">
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<Rectangle Fill="#444" Width="331" HorizontalAlignment="Left" Margin="-9,-9,-8,-8" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border Classes="Connected Synced Error">
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border Classes="Connected Synced Rendering">
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<Rectangle Fill="{DynamicResource Accent}" Opacity=".5" Width="200" HorizontalAlignment="Left" Margin="-9,-9,-8,-8" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border>
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border>
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border>
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+								<Border>
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock>Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
+									</Grid>
+								</Border>
+							</StackPanel>
+						</ScrollViewer>
+					</Border>
+				</Grid>
 			</Border>
 
 			<!-- Settings menu panel -->
