@@ -91,70 +91,79 @@
 					<Border Grid.Row="2" Classes="NodeList">
 						<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
 							<StackPanel Orientation="Vertical" >
+								<Border>
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 1</TextBlock>
+										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Connect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
+									</Grid>
+								</Border>
 								<Border Classes="Connected">
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 2</TextBlock>
+										<TextBlock  Grid.Column="1">192.168.1.1:15000</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Disconnect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Connected but not Synced.</TextBlock>
+									</Grid>
+								</Border>
+								<Border Classes="Connected Synced">
+									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
+										<Rectangle Fill="#444" Width="150" HorizontalAlignment="Left" Margin="-9,-9,-8,-8" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 3</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Disconnect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Connected but not Synced.</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Disconnect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Syncing: 45%</TextBlock>
 									</Grid>
 								</Border>
 								<Border Classes="Connected Synced">
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
 										<Rectangle Fill="#444" Width="331" HorizontalAlignment="Left" Margin="-9,-9,-8,-8" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 4</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Disconnect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Ready to Render!</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Disconnect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Ready to Render!</TextBlock>
 									</Grid>
 								</Border>
 								<Border Classes="Connected Synced Error">
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 5</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Disconnect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Error! The description of the error message would go here</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Disconnect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Error! The description of the error message would go here</TextBlock>
 									</Grid>
 								</Border>
 								<Border Classes="Connected Synced Rendering">
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
 										<Rectangle Fill="{DynamicResource Accent}" Opacity=".5" Width="200" HorizontalAlignment="Left" Margin="-9,-9,-8,-8" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 6</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Disconnect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Rendering: 60% Using CUDA_GPU_ONLY</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Disconnect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Rendering: 60% Using CUDA_GPU_ONLY</TextBlock>
 									</Grid>
 								</Border>
 								<Border>
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 7</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Connect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
 									</Grid>
 								</Border>
 								<Border>
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 8</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Connect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
 									</Grid>
 								</Border>
 								<Border>
 									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
+										<TextBlock FontWeight="Bold" FontSize="14">Computer 9</TextBlock>
 										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
-									</Grid>
-								</Border>
-								<Border>
-									<Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,Auto,Auto">
-										<TextBlock>Computer 1</TextBlock>
-										<TextBlock Grid.Column="1">192.168.1.1:15000</TextBlock>
-										<Button Grid.Column="2" Grid.Row="1">Connect</Button>
-										<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
+										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="5,0,0,0">Connect</Button>
+										<TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">Not Connected...</TextBlock>
 									</Grid>
 								</Border>
 							</StackPanel>
