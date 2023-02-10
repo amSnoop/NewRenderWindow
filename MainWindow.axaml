@@ -4,9 +4,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
         x:Class="NewRenderWindow.MainWindow"
-        Title="NewRenderWindow">
-	<Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,*" Background="{DynamicResource BackgroundMain}">
-		
+        Title="NewRenderWindow"
+		MinWidth="900" MinHeight="700" Width="1920" Height="1080">
+	<Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,2*,*" Background="{DynamicResource BackgroundMain}">
+
 		<!-- Header Bar -->
 		<ListBox >
 			<ListBox.ItemsPanel>
@@ -26,28 +27,31 @@
 			<ListBoxItem>
 				<TextBlock>Project 4</TextBlock>
 			</ListBoxItem>
-			
+
 		</ListBox>
-		<!--<Grid ColumnDefinitions="*,*,78" Grid.Column="1">
+		<Grid ColumnDefinitions="*,*" Grid.Column="1">
 			<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
 				GitHub
 			</Button>
 			<Button Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
 				Patreon
 			</Button>
-			<Button Grid.Column="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
-				Help!
-			</Button>
-		</Grid>-->
-		
-		
-		
-		<Image Grid.Row="1" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia" />
+		</Grid>
+		<Button Grid.Column="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+			Help!
+		</Button>
+
+
+		<Image Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia" />
 		<!-- Menu Bar -->
-		<Grid Grid.Column="1" Grid.Row="1" Classes="MenuButtons" ColumnDefinitions="Auto,*" RowDefinitions="2*,Auto,2*,*,Auto,*">
-			<!-- Menu Buttons -->
-			<Rectangle Grid.Column="1" Grid.Row="0"/>
-			<ListBox Classes="MenuButtons" Grid.Column="1" Grid.Row="1" x:Name="menuOptions" Background="{DynamicResource BackgroundItem}">
+
+
+		<Grid Grid.Column="2" Grid.Row="1" ZIndex="1" Classes="MenuButtons" ColumnDefinitions="Auto" RowDefinitions="2*,Auto,2*">
+			<!-- Menu Buttons --> 
+
+
+			<Rectangle Grid.Column="0" Grid.Row="0"/>
+			<ListBox Classes="MenuButtons" Grid.Column="0" Grid.Row="1" x:Name="menuOptions" Background="{DynamicResource BackgroundItem}">
 
 				<ListBoxItem Classes="MenuButtons" x:Name="Nodes" Padding="0" Margin="0">
 					<TextBlock>Nodes</TextBlock>
@@ -59,33 +63,36 @@
 					<TextBlock>Queue</TextBlock>
 				</ListBoxItem>
 			</ListBox>
-			<Rectangle  Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" />
-			<!--<ListBox Classes="MenuButtons" Grid.Column="1" Grid.Row="4">
-				<ListBoxItem Classes="MenuButtons" x:Name="Render" Padding="0">
+			<Rectangle  Grid.Column="0" Grid.Row="2" />
+		</Grid>
+		<Grid Classes="MenuButtons" Grid.Column="2" RowDefinitions="*,Auto,*" Grid.Row="2">
+			<Rectangle  Grid.Row="0" />
+			<ListBox Classes="MenuButtons" Grid.Row="1">
+				<ListBoxItem Classes="MenuButtons" x:Name="Render">
 					<TextBlock>Render</TextBlock>
 				</ListBoxItem>
-			</ListBox>-->
-			<Rectangle Grid.Column="1" Grid.Row="5"/>
-			<!-- Menu Panels -->
-			<Grid Grid.Column="0" Grid.RowSpan="3" x:Name="menuPanel" Width="400">
+			</ListBox>
+			<Rectangle Grid.Row="2"/>
+		</Grid>
+		<!-- Menu Panels -->
+		<Grid Grid.Column="1" Grid.Row="1" x:Name="menuPanel" Width="400">
 
-				<!-- Nodes Setup menu panel -->
-				<Border Classes="Menu" IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes">
+			<!-- Nodes Setup menu panel -->
+			<Border Classes="Menu" IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes">
 
-				</Border>
+			</Border>
 
-				<!-- Settings menu panel -->
-				<Border Classes="Menu" IsVisible="{Binding #Settings.IsSelected}" x:Name="menuSettings">
+			<!-- Settings menu panel -->
+			<Border Classes="Menu" IsVisible="{Binding #Settings.IsSelected}" x:Name="menuSettings">
 
-				</Border>
-				<!-- Queue menu panel -->
-				<Border Classes="Menu" IsVisible="{Binding #Queue.IsSelected}" x:Name="menuQueue">
+			</Border>
+			<!-- Queue menu panel -->
+			<Border Classes="Menu" IsVisible="{Binding #Queue.IsSelected}" x:Name="menuQueue">
 
-				</Border>
-			</Grid>
-			<Border Margin="0,-1,0,0" Classes="Menu" Grid.Row="3" Grid.RowSpan="3" IsVisible="{Binding #Render.IsSelected}">
-				
 			</Border>
 		</Grid>
+		<Border Margin="0,0,0,0" Classes="Menu" ZIndex="1" Grid.Row="2" Grid.Column="1" IsVisible="{Binding #Render.IsSelected}">
+
+		</Border>
 	</Grid>
 </Window>
