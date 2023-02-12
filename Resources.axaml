@@ -6,6 +6,7 @@
 	<Color x:Key="Alt">#222</Color>
 	<Color x:Key="Highlight">#555</Color>
 	<Color x:Key="MoreHighlight">#AAA</Color>
+	<Color x:Key="MoreMoreHighlight">#DDD</Color>
 	<Color x:Key="TextColor">White</Color>
 	<SolidColorBrush x:Key="PatreonColor">Orange</SolidColorBrush>
 	<SolidColorBrush x:Key="BackgroundMain" Color="{DynamicResource Main}"/>

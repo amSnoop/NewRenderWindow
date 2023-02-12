@@ -11,6 +11,36 @@
 		<Setter Property="Foreground" Value="{DynamicResource TextColor}" />
 		<Setter Property="FontSize" Value="15" />
 	</Style>
+
+
+	<Style Selector="TextBox /template/ Border#PART_BorderElement">
+		<Setter Property="CornerRadius" Value="0" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBox /template/ TextPresenter">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBox:empty /template/ TextPresenter#PART_TextPresenter">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBox:focus /template/ TextPresenter#PART_TextPresenter">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBox:focus-within /template/ TextPresenter#PART_TextPresenter">
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBox:empty /template/ Border#PART_BorderElement">
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Background" Value="{DynamicResource Alt}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource MoreHighlight}" />
+		<Setter Property="Opacity" Value="1" />
+	</Style>
+	<Style Selector="TextBox:empty /template/ TextBlock#PART_Watermark">
+		<Setter Property="Foreground" Value="White" />
+
+		<!-- This does nothing cuz Avalonia sucks -->
+		<Setter Property="Opacity" Value="1" />
+	</Style>
 	
 
     <!-- Menu Buttons -->
@@ -53,7 +83,9 @@
 		<Setter Property="Background" Value="{DynamicResource MenuButtonSelectedHoveredBackground}" />
 	</Style>
 
-
+	<Style Selector="TextBox:empty /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Background" Value="Red" />
+	</Style>
 	<!-- Menu Panels -->
 	<Style Selector="Border.Menu">
 		<Setter Property="Background" Value="{DynamicResource BackgroundMenu}" />
@@ -66,38 +98,18 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource MoreHighlight}" />
 		<Setter Property="BorderThickness" Value="2" />
 	</Style>
-	<Style Selector="Border.NodeList Border" >
+	<Style Selector="Border.NodeList > ScrollViewer > StackPanel > Border" >
 		<Setter Property="Background" Value="{DynamicResource BackgroundMenu}" />
 		<Setter Property="Margin" Value="0,2" />
 		<Setter Property="Padding" Value="10" />
 	</Style>
-	<Style Selector="Border.NodeList TextBlock" >
+	<Style Selector="Border.Node TextBlock" >
 		<Setter Property="FontSize" Value="11" />
 		<Setter Property="Foreground" Value="{DynamicResource MoreHighlight}" />
 	</Style>
 	<Style Selector="Border.NodeList Border.Connected TextBlock" >
 		<Setter Property="Foreground" Value="White" />
 	</Style>
-	<!--<Style Selector="Border.NodeList Border.Connected" >
-		<Setter Property="BorderBrush" Value="Yellow" />
-		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Background" Value="#332" />
-	</Style>
-	<Style Selector="Border.NodeList Border.Synced" >
-		<Setter Property="BorderBrush" Value="Green" />
-		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Background" Value="#242" />
-	</Style>
-	<Style Selector="Border.NodeList Border.Error" >
-		<Setter Property="BorderBrush" Value="Red" />
-		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Background" Value="#722" />
-	</Style>
-	<Style Selector="Border.NodeList Border.Rendering" >
-		<Setter Property="BorderBrush" Value="Blue" />
-		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Background" Value="#223" />
-	</Style>-->
 	<Style Selector="Border.NodeList Border.Connected" >
 		<Setter Property="BorderBrush" Value="{DynamicResource Highlight}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -117,6 +129,26 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="#444" />
+	</Style>
+
+	<!-- I hate Avalonia. These next three can't be combined into one for some fucking reason??? -->
+	<Style Selector="Border.NodeSettings TextBox">
+		<Setter Property="FontSize" Value="11" />
+	</Style>
+	<Style Selector="Border.NodeSettings TextBlock">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="11" />
+	</Style>
+	<Style Selector="Border.NodeSettings NumericUpDown">
+		<Setter Property="ShowButtonSpinner" Value="False" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="11" />
+	</Style>
+	<Style Selector="Border.NodeSettings TextBox /template/ Border#PART_BorderElement, Border.NodeList ComboBox, Border.NodeList NumericUpDown" >
+			<Setter Property="Margin" Value="2" />
+	</Style>
+	<Style Selector="Border.NodeSettings TextBlock" >
+		<Setter Property="Margin" Value="1" />
 	</Style>
 	
 </Styles>
