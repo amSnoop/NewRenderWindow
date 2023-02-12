@@ -17,7 +17,7 @@
 		<Setter Property="CornerRadius" Value="0" />
 		<Setter Property="VerticalAlignment" Value="Center" />
 	</Style>
-	<Style Selector="TextBox /template/ TextPresenter">
+	<Style Selector="TextBox /template/ TextPresenter#PART_TextPresenter">
 		<Setter Property="VerticalAlignment" Value="Center" />
 	</Style>
 	<Style Selector="TextBox:empty /template/ TextPresenter#PART_TextPresenter">
@@ -38,7 +38,7 @@
 	<Style Selector="TextBox:empty /template/ TextBlock#PART_Watermark">
 		<Setter Property="Foreground" Value="White" />
 
-		<!-- This does nothing cuz Avalonia sucks -->
+		<!-- This does nothing -->
 		<Setter Property="Opacity" Value="1" />
 	</Style>
 	
