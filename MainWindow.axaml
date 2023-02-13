@@ -9,35 +9,37 @@
 	<Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,2*,*" Background="{DynamicResource Alt}">
 
 		<!-- Header Bar -->
-		<ListBox Background="Transparent">
-			<ListBox.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel Orientation="Horizontal" />
-				</ItemsPanelTemplate>
-			</ListBox.ItemsPanel>
-			<ListBoxItem>
-				<TextBlock>Project 1</TextBlock>
-			</ListBoxItem>
-			<ListBoxItem>
-				<TextBlock>Project 2</TextBlock>
-			</ListBoxItem>
-			<ListBoxItem>
-				<TextBlock>Project 3</TextBlock>
-			</ListBoxItem>
-			<ListBoxItem>
-				<TextBlock>Project 4</TextBlock>
-			</ListBoxItem>
-
-		</ListBox>
+		<Grid ColumnDefinitions="Auto,Auto">
+			<ListBox Background="Transparent" Classes="Projects">
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+				<ListBoxItem>
+					<TextBlock>Project 1</TextBlock>
+				</ListBoxItem>
+				<ListBoxItem>
+					<TextBlock>Project 2</TextBlock>
+				</ListBoxItem>
+				<ListBoxItem>
+					<TextBlock>Project 3</TextBlock>
+				</ListBoxItem>
+				<ListBoxItem>
+					<TextBlock>Project 4</TextBlock>
+				</ListBoxItem>
+			</ListBox>
+			<Button Grid.Column="2" FontSize="20" Padding="3,0" Margin="5,0">＋</Button>
+		</Grid>
 		<Grid ColumnDefinitions="*,*" Grid.Column="1">
-			<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+			<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" x:Name="GitHub">
 				GitHub
 			</Button>
-			<Button Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+			<Button Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" x:Name="Patreon">
 				Patreon
 			</Button>
 		</Grid>
-		<Button Grid.Column="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+		<Button Grid.Column="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" x:Name="Help">
 			Help!
 		</Button>
 
@@ -62,7 +64,7 @@
 			</ListBox>
 		</Grid>
 		<Grid Classes="MenuButtons" Grid.Column="2"  RowDefinitions="*,Auto,*" Grid.Row="2">
-			<ListBox Classes="MenuButtons" Grid.Row="1">
+			<ListBox Classes="MenuButtons" Grid.Row="1" SelectedIndex="0">
 				<ListBoxItem Classes="MenuButtons" x:Name="Render">
 					<TextBlock>Render</TextBlock>
 				</ListBoxItem>
@@ -73,7 +75,7 @@
 
 			<!-- Nodes Setup menu panel -->
 			<Border Classes="Menu" Padding="25" IsVisible="{Binding #Nodes.IsSelected}" x:Name="menuNodes">
-				<Grid RowDefinitions="Auto,Auto,*">
+				<Grid RowDefinitions="Auto,Auto,*, Auto">
 					<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *">
 						<TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,5">Add New Node:</TextBlock>
 						<TextBlock Grid.Row="1">Name:</TextBlock>
@@ -127,7 +129,7 @@
 
 										<TextBlock  Grid.Column="0" Grid.Row="4">Manual Performance:</TextBlock>
 										<NumericUpDown  Grid.Column="1" Grid.Row="4" Watermark="Computer2"></NumericUpDown>
-										<Button Grid.Column="0" Grid.Row="6" Grid.RowSpan="2">Delete Node</Button>
+										<Button Grid.Column="0" Grid.Row="6" Grid.RowSpan="2" Background="{DynamicResource SubtleRed}">Delete Node</Button>
 										<Button Grid.Column="1" Grid.Row="6" Grid.RowSpan="3">Save Settings</Button>
 									</Grid>
 								</Border>
@@ -217,7 +219,7 @@
 										<TextBlock  Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">192.168.1.1:15000</TextBlock>
 										<Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0">Disconnect</Button>
 										<Border Height="27" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
-											<TextBlock VerticalAlignment="Center" TextWrapping="Wrap">ERROR! Something has gone horribly wrong and something should probably be done about that, but it's not my problem so good luck lmfao</TextBlock>
+											<TextBlock VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" ToolTip.Tip="ERROR! Something has gone horribly wrong and something should probably be done about that, but it's not my problem so good luck lmfao">ERROR! Something has gone horribly wrong and something should probably be done about that, but it's not my problem so good luck lmfao</TextBlock>
 										</Border>
 									</Grid>
 								</Border>
@@ -254,12 +256,16 @@
 							</StackPanel>
 						</ScrollViewer>
 					</Border>
+					<Grid Grid.Row="5" ColumnDefinitions="*,*">
+						<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="20,15,15,0">Connect All</Button>
+						<Button Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="15,15,20,0">Sync All</Button>
+					</Grid>
 				</Grid>
 			</Border>
 
 			<!-- Settings menu panel -->
 			<Border Classes="Menu MenuSettings" IsVisible="{Binding #Settings.IsSelected}" x:Name="menuSettings">
-				<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto">
+				<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,*,Auto">
 					<TextBlock>Image Settings:</TextBlock>
 					<Border Grid.Row="1">
 						<Grid Classes="ImageSettings" ColumnDefinitions="*, *, *, *" RowDefinitions="Auto,Auto,Auto">
@@ -370,25 +376,24 @@
 						<TextBlock Grid.Row="2" Grid.Column="0">MacOS Path:</TextBlock>
 						<TextBox Grid.Row="2" Grid.Column="1"></TextBox>
 					</Grid>
-					<ToggleButton Grid.Row="8">Use Workaround</ToggleButton>
-					<Button Grid.Row="9">Save as Default Settings</Button>
+					<Button Grid.Row="8">Save as Default Settings</Button>
 				</Grid>
 			</Border>
 			<!-- Queue menu panel -->
 			<Border Classes="Menu MenuQueue" IsVisible="{Binding #Queue.IsSelected}" x:Name="menuQueue">
 				<Grid>
 					<TextBlock IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center">No Items in the queue...</TextBlock>
-					<Border BorderBrush="{DynamicResource MoreHighlight}" BorderThickness="2" Background="{DynamicResource Main}" Padding="5">
-						<ListBox Background="Transparent">
-							<ListBoxItem BorderBrush="{DynamicResource Accent}" BorderThickness="1" Margin="0,0,0,5" Background="{DynamicResource Highlight}">
+					<Border>
+						<ListBox>
+							<ListBoxItem Classes="Active">
 								<Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,*">
-									<TextBlock>Lux1</TextBlock>
+									<TextBlock FontWeight="Bold">Lux1</TextBlock>
 									<TextBlock Grid.Row="1">Rendering...</TextBlock>
 									<Button Grid.Column="1" Grid.RowSpan="2">Save</Button>
 									<Button Grid.Column="2" Grid.RowSpan="2">Delete</Button>
 								</Grid>
 							</ListBoxItem>
-							<ListBoxItem BorderBrush="{DynamicResource MoreHighlight}" BorderThickness="1" Margin="0,0,0,5" Background="{DynamicResource LessHighlight}">
+							<ListBoxItem>
 								<Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,*">
 									<TextBlock>Lux1</TextBlock>
 									<TextBlock Grid.Row="1">Queued...</TextBlock>
@@ -396,7 +401,7 @@
 									<Button Grid.Column="2" Grid.RowSpan="2">Delete</Button>
 								</Grid>
 							</ListBoxItem>
-							<ListBoxItem BorderBrush="{DynamicResource MoreHighlight}" BorderThickness="1" Margin="0,0,0,5" Background="{DynamicResource LessHighlight}">
+							<ListBoxItem>
 								<Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,*">
 									<TextBlock>Lux1</TextBlock>
 									<TextBlock Grid.Row="1">Queued...</TextBlock>
@@ -409,7 +414,34 @@
 				</Grid>
 			</Border>
 		</Grid>
-		<Border Margin="0,0,0,0" Classes="Menu" Grid.Row="2" Grid.Column="1" IsVisible="{Binding #Render.IsSelected}">
+		
+		
+		<Border Margin="0,0,0,0" Classes="Menu MenuRender" Grid.Row="2" Grid.Column="1" IsVisible="{Binding #Render.IsSelected}" Width="400">
+			<Grid RowDefinitions="*,Auto,Auto,Auto,*,Auto,Auto,*" ColumnDefinitions="*,*" HorizontalAlignment="Stretch">
+				<TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextAlignment="Center">
+					Mode:
+				</TextBlock>
+				<ListBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+					<ListBoxItem>
+						Image
+					</ListBoxItem>
+					<ListBoxItem>
+						Animation
+					</ListBoxItem>
+					<ListBoxItem>
+						Live Render
+					</ListBoxItem>
+				</ListBox>
+				<ToggleButton Grid.Column="0" Grid.Row="3">Use Workaround</ToggleButton>
+				<ToggleButton Grid.Column="1" Grid.Row="3">Enable Queue</ToggleButton>
+				<Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" x:Name="RenderButton" Classes="Rendering" FontSize="20">Go!</Button>
+				<Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Margin="20,15">Save Result</Button>
+			</Grid>
 		</Border>
 	</Grid>
 </Window>

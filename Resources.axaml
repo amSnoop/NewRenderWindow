@@ -11,6 +11,7 @@
 	<Color x:Key="MoreMoreHighlight">#DDD</Color>
 	<Color x:Key="TextColor">White</Color>
 	<Color x:Key="PatreonColor">#f96854</Color>
+	<Color x:Key="SubtleRed">#533</Color>
 	<SolidColorBrush x:Key="BackgroundMain" Color="{DynamicResource Main}"/>
 	<SolidColorBrush x:Key="BackgroundMenu" Color="{DynamicResource Alt}"/>
 	<SolidColorBrush x:Key="MenuButtonBackground" Color="{DynamicResource Alt}"/>
